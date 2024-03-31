@@ -5,8 +5,8 @@ source /foundryssl/variables.sh
 source /foundryssl/variables_tmp.sh
 
 # Set up logging to the logfile
-exec >> /tmp/foundry-setup.log 2>&1
-set -x
+#exec >> /tmp/foundry-setup.log 2>&1
+#set -x
 
 # Install foundry
 echo "===== 1. INSTALLING DEPENDENCIES ====="
