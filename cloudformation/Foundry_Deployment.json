@@ -796,8 +796,10 @@
 							"",
 							[
 								"#!/bin/bash -x\n",
-								"AWS_AVAIL_ZONE=$(curl http://169.254.169.254/latest/meta-data/placement/availability-zone)\n",
-								"AWS_REGION=${AWS_AVAIL_ZONE::-1}\n",
+								"# AWS_AVAIL_ZONE=$(curl http://169.254.169.254/latest/meta-data/placement/availability-zone)\n",
+								"# AWS_REGION=${AWS_AVAIL_ZONE::-1}\n",
+								"AWS_AVAIL_ZONE=eu-west-1c",
+								"AWS_REGION=eu-west-1",
 								"AWS_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)\n",
 								"ROOT_VOLUME_IDS=$(aws ec2 describe-instances --region $AWS_REGION --instance-id $AWS_INSTANCE_ID --output text --query Reservations[0].Instances[0].BlockDeviceMappings[0].Ebs.VolumeId)\n",
 								"aws ec2 create-tags --resources ${ROOT_VOLUME_IDS} --region $AWS_REGION --tags Key=Snapshot,Value=true\n",
